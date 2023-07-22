@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom"
 const DefaultLayout = () => (
   <Drawer>
     <Navbar />
-    <div className="bg-base-200">
+    <div>
       <Outlet />
     </div>
   </Drawer>

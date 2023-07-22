@@ -1,11 +1,10 @@
-import { NavLink } from "react-router-dom"
 import { menu, logo } from "../assets"
 import { navLinks } from "../constants"
-import { styles } from "../styles"
+import NavbarLink from "./NavbarLink"
 
 const Navbar = () => {
   return (
-    <nav className="navbar py-4 px-12 bg-base-100 text-base-content">
+    <nav className="navbar py-6 md:px-12 px-6 text-white">
       <div className="navbar-start">
         <img
           src={logo}
@@ -23,19 +22,15 @@ const Navbar = () => {
         </div>
       </div>
       <div className="navbar-end md:flex hidden text-sm">
-        <ul className="menu-horizontal gap-1 font-mont font-semibold">
-          {navLinks.map(({ id, link, title, children }) => {
-            return (
-              <li key={id}>
-                <NavLink
-                  to={link}
-                  className={`${styles.hoverLink} p-4 rounded-lg`}
-                >
-                  {title}
-                </NavLink>
-              </li>
-            )
-          })}
+        <ul className="menu-horizontal gap-2 font-mont font-semibold">
+          {navLinks.map(({ id, link, title, children }) => (
+            <NavbarLink
+              key={id}
+              link={link}
+              title={title}
+              childLink={children}
+            />
+          ))}
         </ul>
       </div>
 
