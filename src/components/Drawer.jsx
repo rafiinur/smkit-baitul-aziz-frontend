@@ -1,8 +1,9 @@
-import { navLinks, NavLink } from "../constants"
+import { navLinks } from "../constants"
+import { NavLink } from "react-router-dom"
 
 // eslint-disable-next-line react/prop-types
 const Drawer = ({ children }) => (
-  <div className="drawer">
+  <nav className="drawer">
     <input
       id="my-drawer"
       type="checkbox"
@@ -17,7 +18,7 @@ const Drawer = ({ children }) => (
         htmlFor="my-drawer"
         className="drawer-overlay"
       ></label>
-      <ul className="p-4 w-80 h-full bg-base-100 text-base-content font-mont">
+      <ul className="p-4 w-72 h-full bg-base-100 text-base-content font-mont font-semibold rounded-box">
         {navLinks.map((nav) => (
           <li
             key={nav.id}
@@ -28,7 +29,7 @@ const Drawer = ({ children }) => (
         ))}
       </ul>
     </div>
-  </div>
+  </nav>
 )
 
 export default Drawer

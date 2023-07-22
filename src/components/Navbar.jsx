@@ -1,31 +1,46 @@
-import { navLinks } from "../constants"
 import { NavLink } from "react-router-dom"
-import { menu } from "../../public/assets"
+import { menu, logo } from "../assets"
+import { navLinks } from "../constants"
+import { styles } from "../styles"
 
 const Navbar = () => {
   return (
-    <nav className="navbar py-4 px-8 bg-neutral-0 border-b-2 border-gray-100">
+    <nav className="navbar py-4 px-12 bg-base-100 text-base-content">
       <div className="navbar-start">
         <img
-          src={import.meta.env.VITE_BASE_URL + "/assets/logo.png"}
+          src={logo}
           alt="logo"
-          className="w-[72px] h-[60px]"
+          className="w-[48px] h-[42px] mr-2"
         />
+        <div>
+          <h1 className="font-mont text-sm font-bold tracking-tighter">
+            SMKIT Baitul Aziz
+          </h1>
+          <hr />
+          <p className="font-mont text-[10px] italic tracking-tighter">
+            Menuai risalah, Menggapai peradaban
+          </p>
+        </div>
       </div>
-      <div className="navbar-end hidden sm:flex">
-        <ul className="menu-horizontal font-mont font-semibold space-x-4">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`p-4 hover:bg-primary hover:text-white rounded-lg`}
-            >
-              <NavLink to={nav.link}>{nav.title}</NavLink>
-            </li>
-          ))}
+      <div className="navbar-end md:flex hidden text-sm">
+        <ul className="menu-horizontal gap-1 font-mont font-semibold">
+          {navLinks.map(({ id, link, title, children }) => {
+            return (
+              <li key={id}>
+                <NavLink
+                  to={link}
+                  className={`${styles.hoverLink} p-4 rounded-lg`}
+                >
+                  {title}
+                </NavLink>
+              </li>
+            )
+          })}
         </ul>
       </div>
 
-      <div className="sm:hidden flex flex-1 justify-end items-center">
+      {/* Mobile Navbar */}
+      <div className="md:hidden flex flex-1 justify-end items-center">
         <label
           htmlFor="my-drawer"
           className="btn btn-ghost drawer-button"
@@ -40,4 +55,5 @@ const Navbar = () => {
     </nav>
   )
 }
+
 export default Navbar

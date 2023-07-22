@@ -1,5 +1,7 @@
 import { createBrowserRouter } from "react-router-dom"
-import Home from "./pages/Home"
+import Beranda from "./pages/Beranda"
+import Berita from "./pages/Berita"
+import Kontak from "./pages/Kontak"
 import DefaultLayout from "./components/DefaultLayout"
 
 const router = createBrowserRouter([
@@ -9,7 +11,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home />,
+        element: <Beranda />,
+      },
+      {
+        path: "/berita",
+        element: <Berita />,
+      },
+      {
+        path: "/kontak",
+        element: <Kontak />,
       },
     ],
   },
