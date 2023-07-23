@@ -10,3 +10,11 @@
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+.parallax {
+  background-image: url("../public/hero-1.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

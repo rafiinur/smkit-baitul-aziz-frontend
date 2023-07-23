@@ -4,7 +4,7 @@ import NavbarLink from "./NavbarLink"
 
 const Navbar = () => {
   return (
-    <nav className="navbar py-6 md:px-12 px-6 text-white">
+    <nav className="navbar py-6 px-10 text-white">
       <div className="navbar-start">
         <img
           src={logo}
@@ -23,7 +23,7 @@ const Navbar = () => {
       </div>
       <div className="navbar-end md:flex hidden text-sm">
         <ul className="menu-horizontal gap-2 font-mont font-semibold">
-          {navLinks.map(({ id, link, title, children }) => (
+          {navLinks.map(({ id, link, title, children = null }) => (
             <NavbarLink
               key={id}
               link={link}

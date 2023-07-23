@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { NavLink } from "react-router-dom"
 
 const NavbarLink = ({ link, title, childLink }) => {
@@ -10,11 +10,15 @@ const NavbarLink = ({ link, title, childLink }) => {
     setShowDropdown((prevShowDropdown) => !prevShowDropdown)
   }
 
+  useEffect(() => {
+    console.log(showDropdown)
+  }, [showDropdown])
+
   return (
     <li
       className={`relative ${hasChildren ? "group" : ""}`}
-      onMouseEnter={() => handleToggleDropdown()}
-      onMouseLeave={() => handleToggleDropdown()}
+      onMouseEnter={hasChildren ? handleToggleDropdown : null}
+      onMouseLeave={hasChildren ? handleToggleDropdown : null}
     >
       <NavLink
         to={link}
@@ -24,8 +28,8 @@ const NavbarLink = ({ link, title, childLink }) => {
       </NavLink>
       {hasChildren && (
         <ul
-          className={`absolute left-4 mt-2 bg-base-100 text-base-content shadow-lg rounded-lg opacity-${
-            showDropdown ? "100" : "0"
+          className={`absolute left-4 mt-2 bg-base-100 text-base-content shadow-lg rounded-lg ${
+            showDropdown ? "opacity-100" : "opacity-0"
           } scale-${
             showDropdown ? "100" : "95"
           } transition-all duration-300 transform ${

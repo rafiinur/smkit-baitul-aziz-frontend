@@ -2,7 +2,7 @@ export const navLinks = [
   {
     id: "beranda",
     title: "Beranda",
-    link: "/",
+    link: "/beranda",
   },
 
   {
